@@ -23,7 +23,7 @@ server.listen(8000, '0.0.0.0', function() {
 
 app.get('/', function(req, res) {
   res.render('index.ejs', {
-    title: '靠北景文高中' // Insert Your Facebook Page Name
+    title: 'tag 大安' // Insert Your Facebook Page Name
   });
 });
 
@@ -32,8 +32,8 @@ app.route('/add')
   .post(function(req, res, next) {
     var message = req.param('message');
     var response = {};
-    FB.setAccessToken(''); //Insert Your Acccess Token
-    FB.api('kaobeiJWSH/feed', 'post', {
+    FB.setAccessToken(''); 
+    FB.api('1719895818338836/feed', 'post', {
       message: message
     }, function(res) {
       if (!res || res.error) {

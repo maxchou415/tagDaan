@@ -11,7 +11,7 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="javascript: void(0);">靠北景文高中</a>
+          <a class="navbar-brand" href="javascript: void(0);">tag 大安</a>
         </div>
       </div><!-- /.container-fluid -->
     </nav>
@@ -20,13 +20,13 @@
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <div class="well">
-              <p>你要靠北的內容：</p>
+              <p>你要tag 誰？：</p>
               <textarea rows="5" cols="40" id="kaobeiContent" class="form-control"></textarea>
               <p>&nbsp;</p>
               <button class="btn btn-success btn-block" id="submit">送出</button>
           </div>
           <div class="alert alert-dismissible alert-warning">
-            Made by <strong><a href="https://facebook.com/yihsunmaxchou">Max Yi-Hsun Chou</a></strong><br />Computer Science Class 3, Grade 1.
+            Made by <strong><a href="https://facebook.com/yihsunmaxchou">Max Yi-Hsun Chou</a></strong><br />
           </div>
         </div>
       </div>
@@ -40,7 +40,7 @@
               <h4 class="modal-title" id="myModalLabel">確定？</h4>
             </div>
             <div class="modal-body">
-              你靠北的內容： <br />
+              你tag： <br />
               <label id="kaobeiContentResult"></label>
 
 
@@ -73,19 +73,19 @@
         var dataString = 'message='+ kaobeiContent;
 
         if(kaobeiContent=='') {
-            alert("請填寫你要靠北的內容");
+            alert("請填寫你要tag 的人");
         }
         else {
           $.ajax({
             type: "POST",
-            url: "http://fuckjwsh.ml/add",
+            url: "http://tagdaan.tk/add",
             data: dataString,
             cache: false,
             success: function(result){
               if (result.message == "success") {
-                alert('靠北成功');
+                alert('tag 成功！');
               } else {
-                alert('靠北失敗，請重試');
+                alert('嗚嗚，要被tag 的人落跑惹 QQ');
               }
             }
           });
