@@ -16,8 +16,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cors());
 
-server.listen(8000, '0.0.0.0', function() {
-  console.log('Ready on http://localhost:8000');
+server.listen(1111, '0.0.0.0', function() {
+  console.log('Ready on http://localhost:1111');
 }); //Run Server On port 8080
 
 
@@ -32,7 +32,7 @@ app.route('/add')
   .post(function(req, res, next) {
     var message = req.param('message');
     var response = {};
-    FB.setAccessToken(''); 
+    FB.setAccessToken('');
     FB.api('1719895818338836/feed', 'post', {
       message: message
     }, function(res) {
