@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/paper/bootstrap.min.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="javascript: void(0);">靠北景文高中</a>
+        </div>
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="well">
+              <p>你要靠北的內容：</p>
+              <textarea rows="5" cols="40" id="kaobeiContent" class="form-control"></textarea>
+              <p>&nbsp;</p>
+              <button class="btn btn-success btn-block" id="submit">送出</button>
+          </div>
+          <div class="alert alert-dismissible alert-warning">
+            Made by <strong><a href="https://facebook.com/yihsunmaxchou">Max Yi-Hsun Chou</a></strong><br />Computer Science Class 3, Grade 1.
+          </div>
+        </div>
+      </div>
+
+      <!-- check modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">確定？</h4>
+            </div>
+            <div class="modal-body">
+              你靠北的內容： <br />
+              <label id="kaobeiContentResult"></label>
+
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal" id="cancel">不，我再想想</button>
+              <button type="button" class="btn btn-primary" id="sure-submit" data-dismiss="modal">我確定</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+      $( "#submit").click(function() {
+
+          var kaobeiContent = $('#kaobeiContent').val();
+
+          $('#myModal').modal('show');
+
+          $('#kaobeiContentResult').append(kaobeiContent);
+
+      });
+
+      $("#sure-submit").click(function() {
+
+        var kaobeiContent = $('#kaobeiContent').val();
+
+        var dataString = 'message='+ kaobeiContent;
+
+        if(kaobeiContent=='') {
+            alert("請填寫你要靠北的內容");
+        }
+        else {
+          $.ajax({
+            type: "POST",
+            url: "http://fuckjwsh.ml/add",
+            data: dataString,
+            cache: false,
+            success: function(result){
+              if (result.message == "success") {
+                alert('靠北成功');
+              } else {
+                alert('靠北失敗，請重試');
+              }
+            }
+          });
+        }
+
+
+      });
+    </script>
+  </body>
+</html>
