@@ -5,5 +5,10 @@ Tag 你身邊的橘人！
 
 Post from anywhere
 ```
-POST http://tagdaan.tk/add
+POST http://tagdaan.tk/add?message= "內容" (不用加引號)
+```
+<br />
+Ex.
+```
+POST http://tagdaan.tk/add?message=tag大安最憨的
 ```
